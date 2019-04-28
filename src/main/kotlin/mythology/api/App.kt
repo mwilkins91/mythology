@@ -5,15 +5,41 @@ package mythology.api
 
 import io.javalin.Javalin
 import mythology.api.router.attachRoutes
+import mythology.databse.connect
+import java.lang.reflect.InvocationTargetException
 
 const val PORT = 7000;
 const val APP_NAME = "Mythology API"
 
 fun main(args: Array<String>) {
+  try {
+  println("Connecting to DB")
+  connect()
+
+
   val app = Javalin
               .create()
               .start(PORT)
   println("$APP_NAME starting on port $PORT...")
   attachRoutes(app);
   println("$APP_NAME started!")
+  } catch( err: InvocationTargetException) {
+    val cause = err.cause
+    println("- - -")
+    println("- - -")
+    println("- - -")
+    println("$cause")
+    println("- - -")
+    println("- - -")
+    println("- - -")
+  } catch (err: java.lang.ExceptionInInitializerError) {
+        val cause = err.cause
+    println("- - -")
+    println("- - -")
+    println("- - -")
+    println("$cause")
+    println("- - -")
+    println("- - -")
+    println("- - -")
+  }
 }

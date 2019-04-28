@@ -28,6 +28,12 @@ dependencies {
     // Postgres orm
     implementation("org.jetbrains.exposed:exposed:0.13.2")
 
+    // postgres db driver
+    implementation("org.postgresql:postgresql:42.2.2")
+
+    // not sure what this is for, but apparently needed
+    implementation("org.slf4j:slf4j-simple:1.7.26")
+
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 

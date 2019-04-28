@@ -1,0 +1,8 @@
+myth-api-postgress-server:
+  image: postgres:alpine
+  ports:
+    - '7001:5432'
+  environment:
+    POSTGRES_PASSWORD: password123
+    POSTGRES_USER: mark
+    POSTGRES_DB: mythology
